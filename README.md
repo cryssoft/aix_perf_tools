@@ -5,6 +5,7 @@ NOTES:
     lps_cpu           - partial re-do of some 'mpstat' output, very much a work in progress.
     lps_cputotal      - ran this 24x7 on every LPAR in one environment.  lots of good data.
     lps_memplus       - ran this 24x7 on every LPAR in one environment.  lots of good data.
+    lps_netadapter    - ran this 24x7 on some LPARs in one environment.  lots of good data.
     lps_procpool_data - ran this 24x7 on one LPAR per shared processor pool in one environment.  lots of good data.
     lps_sea           - somewhat mis-named.  you can run it against an SEA or any bare Etherchannel device.
 
@@ -49,6 +50,11 @@ USAGE:
     options here.  run it with the usual "# #" to set the interval and count of outputs.  however if you're
     team earl, you can try it with very small intervals (less than one second) and see if the data still
     makes sense.
+
+    lps_netadapter - this produces a line of very detailed output about a single ethernet interface on an
+    LPAR.  not a lot of options here.  run it with the usual "name # #" to set the interval and count of
+    outputs.  however if you're team earl, you can try it with very small intervals (less than one second)
+    and see if the data still makes sense.
 
     lps_procpool_data - this uses some libperfstat calls to dump statistics about the usage for the shared
     processor pool in which the current LPAR runs.  of course, that means the LPAR has to be enabled to get
