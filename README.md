@@ -1,11 +1,12 @@
 NOTES:
 
-    hbaq         - requires root authority because of a lot of the system calls it leverages.
+    hbaq              - requires root authority because of a lot of the system calls it leverages.
     
-    lps_cpu      - partial re-do of some 'mpstat' output, very much a work in progress.
-    lps_cputotal - ran this 24x7 on every LPAR in one environment.  lots of good data.
-    lps_memplus  - ran this 24x7 on every LPAR in one environment.  lots of good data.
-    lps_sea      - somewhat mis-named.  you can run it against an SEA or any bare Etherchannel device.
+    lps_cpu           - partial re-do of some 'mpstat' output, very much a work in progress.
+    lps_cputotal      - ran this 24x7 on every LPAR in one environment.  lots of good data.
+    lps_memplus       - ran this 24x7 on every LPAR in one environment.  lots of good data.
+    lps_procpool_data - ran this 24x7 on one LPAR per shared processor pool in one environment.  lots of good data.
+    lps_sea           - somewhat mis-named.  you can run it against an SEA or any bare Etherchannel device.
 
     i wouldn't call any of it more than "beta", since it's never been made available outside of
     operational environments yet.  i've run all of them 24x7 on AIX 7.2, 7.3 and VIOS 3.1, 4.1 without
@@ -48,6 +49,12 @@ USAGE:
     options here.  run it with the usual "# #" to set the interval and count of outputs.  however if you're
     team earl, you can try it with very small intervals (less than one second) and see if the data still
     makes sense.
+
+    lps_procpool_data - this uses some libperfstat calls to dump statistics about the usage for the shared
+    processor pool in which the current LPAR runs.  of course, that means the LPAR has to be enabled to get
+    shared pool data (from the HMC, etc.).  not a lot of options here.  run it with the usual "# #" to set
+    the interval and count of outputs.  however if you're team earl, you can try it with very small intervals
+    (less than one second) and see if the data still makes sense.
 
     lps_sea - similar to the other lps_* commands.  have you ever wondered how things are running across the
     various parts of a physical/virtual/SEA environment?  this can tell you in relatively real-time.  is the
