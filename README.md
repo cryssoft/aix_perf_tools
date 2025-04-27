@@ -1,5 +1,7 @@
 NOTES:
 
+    drr               - watches for and tries to expand dynamic LPAR configuration changes.
+
     hbaq              - requires root authority because of a lot of the system calls it leverages.
     
     lps_cpu           - partial re-do of some 'mpstat' output, very much a work in progress.
@@ -20,6 +22,13 @@ NOTES:
     each loop means you gain 0.001 seconds every run).
 
 USAGE:
+
+    drr - this one is mostly about exploring the API, so I'll make the 'C' code and the executable
+    available together.  start it up, perform DLPAR changes to memory, CPU, etc. or even change the
+    SMT mode, and you can watch the re-configuration events in effectively real time.  i'd say it's 
+    long past time for developers and independent software vendors to watch for these events and
+    auto-scale at the software level.  AIX has only supported it with a documented API since about
+    AIX 5.2 (check me on this!).
 
     hbaq - uses older, HBAAPI calls, so HBAs are numbered from zero regardless of fcs# device names.
     
